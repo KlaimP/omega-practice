@@ -38,6 +38,8 @@ public class movement : MonoBehaviour
         {
             anim.SetFloat("Horizontal", moveVector.x);
             anim.SetFloat("Vertical", moveVector.y);
-        }
+            anim.SetBool("move", true);
+        } else
+            anim.SetBool("move", false);
     }
 }
