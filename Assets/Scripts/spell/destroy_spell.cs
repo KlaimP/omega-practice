@@ -28,7 +28,7 @@ public class destroy_spell : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag == "wall")
+        if (collision.tag == "wall" || collision.tag == "enemy")
         {
             Rigidbody2D rb = GetComponent<Rigidbody2D>();
             rb.velocity = Vector3.zero;

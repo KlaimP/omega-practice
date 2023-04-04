@@ -53,7 +53,6 @@ public class shooting : MonoBehaviour
     {
         enableCast = false;
         anim.SetBool("cast", true);
-        yield return new WaitForSeconds(0.1f);
         GameObject fireball = Instantiate(fireballPrefab, firePoint.transform.position, firePoint.transform.rotation);
         Rigidbody2D rb = fireball.GetComponent<Rigidbody2D>();
         Vector3 fp = firePoint.transform.up;
