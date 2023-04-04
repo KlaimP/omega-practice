@@ -13,7 +13,7 @@ public class RoomsPlacer : MonoBehaviour
     public HeroRoom[,] spawnedRooms;
    
 
-    private IEnumerator Start()
+    private void Start()
     {
         spawnedRooms = new HeroRoom[11, 11];
         spawnedRooms[5, 5] = StartingRoom;
@@ -21,7 +21,6 @@ public class RoomsPlacer : MonoBehaviour
 
         for (int i = 0; i < CountRooms; i++)
         {
-            yield return new WaitForSecondsRealtime(0.5f);
             PlaceOneRoom();
         }
         
@@ -72,23 +71,34 @@ public class RoomsPlacer : MonoBehaviour
         if (selectedDirection == Vector2Int.up)
         {
             room.DoorT.SetActive(true);
+            room.DoorTB = selectedRoom.DoorB;
+            selectedRoom.DoorBT = room  .DoorT;
             selectedRoom.DoorB.SetActive(true);
         }
         else if (selectedDirection == Vector2Int.down)
         {
             room.DoorB.SetActive(true);
+            room.DoorBT = selectedRoom.DoorT;
+            selectedRoom.DoorTB = room.DoorB;
             selectedRoom.DoorT.SetActive(true);
         }
         else if (selectedDirection == Vector2Int.right)
         {
             room.DoorR.SetActive(true);
+            room.DoorRL = selectedRoom.DoorL;
+
+            selectedRoom.DoorLR = room.DoorR;
             selectedRoom.DoorL.SetActive(true);
         }
         else if (selectedDirection == Vector2Int.left)
         {
             room.DoorL.SetActive(true);
+            room.DoorLR = selectedRoom.DoorR;
+
+            selectedRoom.DoorRL = room.DoorL;
             selectedRoom.DoorR.SetActive(true);
         }
 
     }
+
 }

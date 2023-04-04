@@ -6,6 +6,7 @@ public class enemyStat : MonoBehaviour
 {
 
     public float hp;
+    public float dmg;
 
     public void Hit(float dmg)
     {
@@ -17,4 +18,5 @@ public class enemyStat : MonoBehaviour
             Debug.Log("Enemy killed");
         }
     }
+
 }
