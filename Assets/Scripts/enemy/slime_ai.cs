@@ -8,7 +8,6 @@ public class slime_ai : MonoBehaviour
     public float maxSpeed;
 
     public float checkRadius;
-    public float attackRadius;
     public LayerMask whatIsPlayer;
     
     public Animator anim;
@@ -90,15 +89,6 @@ public class slime_ai : MonoBehaviour
         {
             isInAttackRange = false;
         }
-    }
-
-    private void OnDrawGizmos()
-    {
-        Vector2 origin = transform.position;
-        Handles.color = Color.yellow;
-        Handles.DrawWireDisc(origin, new Vector3(0, 0, 1), checkRadius);
-        Handles.color = Color.red;
-        Handles.DrawWireDisc(origin, new Vector3(0, 0, 1), attackRadius);
     }
 
     IEnumerator stopAttack()

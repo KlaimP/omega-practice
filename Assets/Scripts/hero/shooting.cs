@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class shooting : MonoBehaviour
 {
-    public Vector3 mouseVector;
+    Vector3 mouseVector;
     [Space]
     [SerializeField]
     bool enableCast = true;
@@ -56,9 +56,8 @@ public class shooting : MonoBehaviour
         GameObject fireball = Instantiate(fireballPrefab, firePoint.transform.position, firePoint.transform.rotation);
         Rigidbody2D rb = fireball.GetComponent<Rigidbody2D>();
         Vector3 fp = firePoint.transform.up;
-        yield return new WaitForSeconds(0.2f);
         rb.AddForce(fp * fireballForce, ForceMode2D.Impulse);
-        yield return new WaitForSeconds(0.1f);
+        yield return new WaitForSeconds(0.3f);
         anim.SetBool("cast", false);
         enableCast = true;
     }

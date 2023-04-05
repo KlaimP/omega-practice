@@ -8,7 +8,10 @@ public class EnterDoor : MonoBehaviour
     public Vector2Int side;
 
     private bool stayDoor;
+    private void Start()
+    {
 
+    }
     private void Update()
     {
         if (Input.GetKeyUp(KeyCode.E) && stayDoor)
@@ -21,8 +24,12 @@ public class EnterDoor : MonoBehaviour
         if (collision.tag == "Player")
         {
             stayDoor= true;
-        }
+            
+            GameObject game = GameObject.Find("Press E");
+            Animator anim = game.GetComponent<Animator>();
 
+            anim.SetTrigger("enable");
+        }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
